@@ -2,25 +2,36 @@
 
 > **CRITICAL**: 次のセッションは必ずこのファイルを読んでから作業を開始すること
 
-**最終更新**: 2026-02-28（v2.26.0リリース）
+**最終更新**: 2026-03-02（v2.30.0リリース）
 
-## 直近の作業ログ（2026-02-28）
+## 直近の作業ログ（2026-03-02）
 
-### v2.26.0 — Claude Code v2.1.63対応
+### v2.30.0 — agentシンボリックリンクバグ修正
+
+#### 問題
+- `cp -r ~/taisun_agent/.claude .claude` 実行時に `directory causes a cycle` エラー
+- 他プロジェクトやユーザーがインストールしてもエージェント・スキルがClaude Code UIに表示されない
+- `~/.claude/agents/` に15個しかリンクされていなかった（本来96個）
+
+#### 根本原因
+1. **循環シンボリックリンク**: `~/taisun_agent/.claude/.claude → ~/taisun_agent/.claude`（自己参照）
+   - `ln -sf ~/taisun_agent/.claude .claude` をリポジトリ内から実行すると生成
+   - `.gitignore` に `.claude/.claude` を追加して再発防止
+2. **install.sh / update.sh のバグ**: `if [ ! -L "$target" ]` のみのチェック
+   - 新規エージェントしかリンクされず、git pull後の追加エージェントが反映されなかった
 
 #### 実施内容
-1. **`isolation: worktree` 追加** — 16のコード変更系エージェントのfrontmatterに追加
-   - 対象: bug-fixer, refactor-specialist, feature-builder, implementation-assistant, migration-developer, test-generator, script-writer, api-developer, backend-developer, frontend-developer, database-developer, security-scanner, api-designer, database-designer, sub-implementer, sub-test-runner-fixer
-   - `.gitignore` に `.claude/worktrees/` を追記
-2. **`/batch` スキル追加** — `.claude/skills/batch/SKILL.md` 新規作成
-   - inode共有のため taisun_agent / taisun_agentv2 両方に反映
-3. **AGENTS.md 更新** — isolation: worktree の教訓と対象エージェント一覧を追記
-4. **README.md 更新** — v2.26.0セクション追加
+1. **`~/taisun_agent/.claude/.claude` 循環シンボリックリンクを削除**
+2. **`.gitignore` に `.claude/.claude` を追記**
+3. **`scripts/install.sh`** — agentリンクロジック修正（既存symlink更新対応）
+4. **`scripts/update.sh`** — 同上
+5. **`README.md`** — アップデート手順を `git pull && ./scripts/update.sh` に統一
+6. **`CHANGELOG.md`** — v2.30.0 エントリ追加
+7. **`package.json`** — version `2.6.0` → `2.30.0`
 
-#### 参考: X投稿
-@__SatoshiSsSs__ の Claude Code v2.1.63分析投稿を参照して実装
+#### 確認結果
+- `./scripts/install.sh` 実行後: Agents available: 109 ✅
 
-**最終更新（元）**: 2026-02-28T13:16:27.191Z
 **作業ディレクトリ**: /Users/matsumototoshihiko/Desktop/開発2026/taisun_agentv2
 
 ## 既存スクリプト（MUST READ）
