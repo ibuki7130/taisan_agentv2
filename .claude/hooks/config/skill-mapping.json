@@ -1,0 +1,25 @@
+{
+  "version": "2.0",
+  "mappings": [
+    { "category": "research", "skills": ["research", "mega-research", "world-research", "deep-research-grok"] },
+    { "category": "marketing", "skills": ["taiyo-style", "taiyo-style-lp", "taiyo-style-sales-letter", "copywriting-helper"] },
+    { "category": "sdd", "skills": ["sdd-full", "sdd-req100", "sdd-design", "sdd-adr", "sdd-tasks", "sdd-threat"] },
+    { "category": "image", "skills": ["nanobanana-pro", "agentic-vision", "canvas-design"] },
+    { "category": "video", "skills": ["video-agent", "shorts-create"] },
+    { "category": "anime", "skills": ["ai-manga-generator", "anime-slide-generator"] },
+    { "category": "code", "skills": ["claude-api", "codegraph", "batch"] },
+    { "category": "web", "skills": ["firecrawl", "stagehand", "url-all"] }
+  ],
+  "keywords": {
+    "リサーチ": "research",
+    "調査": "research",
+    "マーケティング": "marketing",
+    "LP": "taiyo-style-lp",
+    "セールスレター": "taiyo-style-sales-letter",
+    "設計書": "sdd-full",
+    "要件定義": "sdd-req100",
+    "画像生成": "nanobanana-pro",
+    "動画": "video-agent",
+    "漫画": "ai-manga-generator"
+  }
+}

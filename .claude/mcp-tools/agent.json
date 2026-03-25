@@ -1,0 +1,14 @@
+{
+  "name": "agent",
+  "description": "エージェントを起動してタスクを実行するツール",
+  "tools": [
+    {
+      "name": "run_agent",
+      "description": "指定したエージェントを実行する",
+      "parameters": {
+        "agent_name": "エージェント名",
+        "prompt": "タスクの説明"
+      }
+    }
+  ]
+}

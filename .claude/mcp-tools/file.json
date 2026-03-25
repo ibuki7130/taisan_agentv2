@@ -1,0 +1,18 @@
+{
+  "name": "file",
+  "description": "ファイル操作ツール",
+  "tools": [
+    {
+      "name": "read_file",
+      "description": "ファイルを読み込む"
+    },
+    {
+      "name": "write_file",
+      "description": "ファイルに書き込む"
+    },
+    {
+      "name": "list_files",
+      "description": "ファイル一覧を取得"
+    }
+  ]
+}

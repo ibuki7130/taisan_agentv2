@@ -1,0 +1,17 @@
+{
+  "name": "git",
+  "description": "Gitリポジトリ操作ツール",
+  "tools": [
+    {
+      "name": "git_status",
+      "description": "リポジトリの状態を確認"
+    },
+    {
+      "name": "git_commit",
+      "description": "変更をコミット",
+      "parameters": {
+        "message": "コミットメッセージ"
+      }
+    }
+  ]
+}

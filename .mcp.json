@@ -1,1 +1,20 @@
-/Users/matsumototoshihiko/taisun_agent/.mcp.json
+{
+  "mcpServers": {
+    "taisun-proxy": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["dist/proxy-mcp/server.js"],
+      "disabled": true,
+      "description": "TAISUN Proxy MCP - enable after build completes",
+      "category": "system"
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "disabled": false,
+      "description": "最新ドキュメント取得",
+      "category": "documentation"
+    }
+  }
+}

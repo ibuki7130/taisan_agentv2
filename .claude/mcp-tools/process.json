@@ -1,0 +1,14 @@
+{
+  "name": "process",
+  "description": "プロセス実行ツール",
+  "tools": [
+    {
+      "name": "run_command",
+      "description": "シェルコマンドを実行する",
+      "parameters": {
+        "command": "実行するコマンド",
+        "cwd": "作業ディレクトリ（オプション）"
+      }
+    }
+  ]
+}

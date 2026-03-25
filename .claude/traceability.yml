@@ -1,0 +1,14 @@
+version: "1.0"
+project: taisun-v2
+initialized: "2026-03-25T00:00:00Z"
+platform: windows
+
+sessions:
+  - date: "2026-03-25"
+    action: "initial_setup"
+    note: "Windows環境でのリポジトリ初期化"
+    changes:
+      - ".claude/ ディレクトリ作成"
+      - "hooks/ 全ファイル作成"
+      - "settings.json 設定"
+      - "package.json の google-auth-system タグ修正"
