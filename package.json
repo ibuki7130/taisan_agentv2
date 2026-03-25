@@ -4,6 +4,10 @@
   "description": "Unified Development System - World-class system development platform with OpenCode/OMO integration and Workflow Guardian",
   "main": "src/index.js",
   "scripts": {
+    "threads:start": "node threads-bot/index.js",
+    "threads:test": "node threads-bot/index.js --test",
+    "threads:generate": "node threads-bot/index.js --generate",
+    "threads:stats": "node threads-bot/index.js --stats",
     "setup": "bash scripts/install.sh",
     "update": "bash scripts/update.sh",
     "start": "node src/index.js",
@@ -109,13 +113,15 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
     "@modelcontextprotocol/sdk": "^1.0.0",
     "@qdrant/js-client-rest": "^1.12.0",
     "@types/supertest": "^6.0.3",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.6.1",
     "express": "^5.2.1",
     "google-auth-system": "github:taiyousan15/google-auth-system#main",
     "kuromoji": "^0.1.2",
+    "node-cron": "^4.2.1",
     "supertest": "^7.1.4",
     "yaml": "^2.3.4"
   },
